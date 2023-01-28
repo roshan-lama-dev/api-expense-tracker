@@ -1,0 +1,21 @@
+###
+POST http://localhost:5000/api/v1/user
+Content-Type: application/json
+
+{
+    "name":"Rsjan",
+    "email":"rosh@gmail.com",
+    "pin":"1234"
+}
+
+
+
+###
+POST http://localhost:5000/api/v1/user/login
+Content-Type: application/json 
+
+{
+    "email":"ram@ram.com",
+    "pin":"1234"
+
+}
