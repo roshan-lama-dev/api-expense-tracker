@@ -5,6 +5,8 @@ import morgan from "morgan";
 import { dbConnection } from "./src/config/dbConfig.js";
 const PORT = process.env.PORT || 5000;
 import userRouter from "./src/routers/userRotuers/userRotuer.js";
+import transationRouter from "./src/routers/transactionRouter/transactionRouter.js";
+import { isAuth } from "./src/authMiddleware/authMiddleware.js";
 
 app.use(express.json());
 app.use(cors());
@@ -12,6 +14,8 @@ app.use(morgan("dev"));
 
 dbConnection();
 app.use("/api/v1/user", userRouter);
+
+app.use("/api/v1/transaction", isAuth, transationRouter);
 app.use("*", (req, res, next) => {
   const error = {
     code: " 404",
