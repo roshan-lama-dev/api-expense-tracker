@@ -13,6 +13,4 @@ export const updateUser = (filter, updateObj) => {
   return UserSchema.findByIdAndUpdate(filter, updateObj);
 };
 // deleteUsersd
-export const deleteUserById = (_id) => {
-  return UserSchema.deleteMany(_id);
-};
+
